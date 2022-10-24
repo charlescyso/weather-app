@@ -1,0 +1,11 @@
+$primary-color: #41f144;
+$secondary-color: #ff00378d;
+
+button {
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+
+}
