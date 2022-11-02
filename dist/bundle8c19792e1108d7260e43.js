@@ -608,6 +608,120 @@ function styleTagTransform(css, styleElement) {
 
 module.exports = styleTagTransform;
 
+/***/ }),
+
+/***/ "./src/dom.js":
+/*!********************!*\
+  !*** ./src/dom.js ***!
+  \********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _weather_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weather.js */ "./src/weather.js");
+
+
+const dom = (() => {
+  async function displayWeather(query) {
+    try {
+      const cityDOM = document.querySelector('#weather-city');
+      const countryDOM = document.querySelector('#weather-country');
+      const weatherDOM = document.querySelector('#weather-weather');
+      const tempDOM = document.querySelector('#weather-temp');
+
+      const weatherData = await _weather_js__WEBPACK_IMPORTED_MODULE_0__["default"].getWeatherData(query);
+      const currentCity = weatherData.current.city;
+      const currentCountry = weatherData.current.country;
+      const currentWeather = weatherData.current.weather;
+      const currentTemp = weatherData.current.temp;
+
+      cityDOM.textContent = currentCity;
+      countryDOM.textContent = currentCountry;
+      weatherDOM.textContent = currentWeather;
+      tempDOM.textContent = currentTemp;
+    } catch (error) {
+      console.log('Failed to query weather data');
+      displayError();
+    }
+  }
+
+  const displayError = () => {
+    const cityDOM = document.querySelector('#weather-city');
+    const countryDOM = document.querySelector('#weather-country');
+    const weatherDOM = document.querySelector('#weather-weather');
+    const tempDOM = document.querySelector('#weather-temp');
+
+    cityDOM.textContent = 'Could not retrieve the weather';
+    countryDOM.textContent = '';
+    weatherDOM.textContent = '';
+    tempDOM.textContent = '';
+  };
+
+  const submitForm = (e) => {
+    e.preventDefault();
+
+    const inputQuery = document.querySelector('#input-query').value;
+    if (!inputQuery) {
+      alert('Please enter a valid city');
+      return;
+    }
+    displayWeather(inputQuery);
+  };
+
+  const eventListeners = (() => {
+    const formQuery = document.querySelector('#form-query');
+    formQuery.addEventListener('submit', submitForm);
+  })();
+})();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dom);
+
+
+/***/ }),
+
+/***/ "./src/weather.js":
+/*!************************!*\
+  !*** ./src/weather.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const weather = (() => {
+  const APIKey = 'e285b30befd26328ea0acf71efd28e09';
+
+  async function getWeatherData(query) {
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${APIKey}`
+      );
+      const data = await response.json();
+      const weatherData = {
+        current: {
+          city: data.name,
+          country: data.sys.country,
+          weather: data.weather[0].main,
+          temp: data.main.temp,
+        },
+      };
+      console.log('Successfuly fetched weather data');
+      return weatherData;
+    } catch (error) {
+      console.log('Failed to fetch weather data');
+    }
+  }
+  return {
+    getWeatherData,
+  };
+})();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (weather);
+
+
 /***/ })
 
 /******/ 	});
@@ -690,8 +804,14 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var normalize_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! normalize.css */ "./node_modules/normalize.css/normalize.css");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+/* harmony import */ var _dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom.js */ "./src/dom.js");
+/* harmony import */ var _weather_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weather.js */ "./src/weather.js");
+/* harmony import */ var normalize_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! normalize.css */ "./node_modules/normalize.css/normalize.css");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+// import scripts
+
+ // For testing, import into dom.js later
+// import styles
 
 
 
@@ -699,4 +819,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle3959d3c988dc3d1c6c02.js.map
+//# sourceMappingURL=bundle8c19792e1108d7260e43.js.map
