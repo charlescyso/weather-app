@@ -47,10 +47,19 @@ const dom = (() => {
     displayWeather(inputQuery);
   };
 
+  const init = () => {
+    displayWeather('Surrey');
+  };
+
+  // event listeners
   const eventListeners = (() => {
     const formQuery = document.querySelector('#form-query');
     formQuery.addEventListener('submit', submitForm);
   })();
+
+  return {
+    init,
+  };
 })();
 
 export default dom;
