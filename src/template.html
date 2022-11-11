@@ -7,13 +7,27 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-    <div id="weather-city">weather-city</div>
-    <div id="weather-country">weather-country</div>
-    <div id="weather-weather">weather-weather</div>
-    <div id="weather-temp">weather-temp</div>
-    <form id="form-query">
-      <input type="text" id="input-query" />
-      <button type="submit" id="submit-query">Submit</button>
-    </form>
+    <div class="page-wrapper">
+      <div class="nav-bar">
+        <h1>Weather App</h1>
+        <form id="form-query">
+          <input type="text" id="input-query" />
+          <button type="submit" id="submit-query">🔎</button>
+        </form>
+      </div>
+      <div class="center-container">
+        <div class="weather-container">
+          <div id="weather-city">weather-city</div>
+          <div id="weather-country">weather-country</div>
+          <div id="weather-weather">weather-weather</div>
+          <div id="weather-temp">weather-temp</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>
+        Made by Charles on <a href="https://github.com/charlescyso">GitHub</a>
+      </p>
+    </div>
   </body>
 </html>
