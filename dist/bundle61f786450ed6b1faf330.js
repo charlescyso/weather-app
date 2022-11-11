@@ -47,7 +47,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "*,\n*::before,\n*::after,\nh1 {\n  box-sizing: border-box;\n  padding: 0;\n  margin: 0;\n}\n\nbody {\n  background-color: #0e6cff;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\nh1 {\n  color: white;\n}\n\ninput {\n  border-radius: 3px 0 0 3px;\n  border: none;\n  padding: 0.5rem;\n}\ninput:focus {\n  outline: none;\n  border: none;\n}\n\nbutton {\n  background-color: white;\n  padding: 0.5rem 0.5rem 0.5rem 0;\n  border: none;\n  border-radius: 0 3px 3px 0;\n  cursor: pointer;\n}\n\n.page-wrapper {\n  min-height: 100vh;\n}\n\n.nav-bar {\n  display: flex;\n  background: #0055da;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n}\n\n#form-query {\n  display: flex;\n}\n\n.center-container {\n  height: calc(100vh - 68.8px);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.weather-container {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-rows: 1fr 1fr 1fr;\n  min-width: 360px;\n  min-height: 20rem;\n  padding: 1rem;\n  gap: 1rem;\n  background-color: #ff8700;\n  border-radius: 10px;\n  font-size: 2rem;\n  font-weight: bold;\n  color: white;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n}\n.weather-container:hover {\n  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.weather-container div {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.weather-container #weather-city {\n  justify-self: center;\n  grid-column: 1/span 2;\n}\n.weather-container #weather-country {\n  justify-self: center;\n  grid-row-start: 2;\n  grid-column: 1/span 2;\n}", "",{"version":3,"sources":["webpack://./src/style.scss","webpack://./src/_config.scss"],"names":[],"mappings":"AAGA;;;;EAIE,sBAAA;EACA,UAAA;EACA,SAAA;AAFF;;AAKA;EACE,yBCZc;EDad,yCCdW;ADYb;;AAKA;EACE,YAAA;AAFF;;AAKA;EACE,0BAAA;EACA,YAAA;EACA,eAAA;AAFF;AAIE;EACE,aAAA;EACA,YAAA;AAFJ;;AAMA;EACE,uBAAA;EACA,+BAAA;EACA,YAAA;EACA,0BAAA;EACA,eAAA;AAHF;;AAMA;EACE,iBAAA;AAHF;;AAMA;EACE,aAAA;EACA,mBAAA;EACA,8BAAA;EACA,mBAAA;EACA,aAAA;AAHF;;AAOA;EACE,aAAA;AAJF;;AAOA;EACE,4BAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;AAJF;;AAOA;EACE,aAAA;EACA,8BAAA;EACA,+BAAA;EACA,gBAAA;EACA,iBAAA;EACA,aAAA;EACA,SAAA;EAEA,yBCvEgB;EDwEhB,mBAAA;EACA,eAAA;EACA,iBAAA;EACA,YAAA;EAEA,0CAAA;EACA,gBAAA;AANF;AAQE;EACE,2CAAA;AANJ;AASE;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;AAPJ;AAUE;EACE,oBAAA;EACA,qBAAA;AARJ;AAWE;EACE,oBAAA;EACA,iBAAA;EACA,qBAAA;AATJ","sourcesContent":["@import 'config';\n\n// global\n*,\n*::before,\n*::after,\nh1 {\n  box-sizing: border-box;\n  padding: 0;\n  margin: 0;\n}\n\nbody {\n  background-color: $primary-color;\n  font-family: $font-stack;\n}\n\nh1 {\n  color: white;\n}\n\ninput {\n  border-radius: 3px 0 0 3px;\n  border: none;\n  padding: 0.5rem;\n\n  &:focus {\n    outline: none;\n    border: none;\n  }\n}\n\nbutton {\n  background-color: white;\n  padding: 0.5rem 0.5rem 0.5rem 0;\n  border: none;\n  border-radius: 0 3px 3px 0;\n  cursor: pointer;\n}\n\n.page-wrapper {\n  min-height: 100vh;\n}\n\n.nav-bar {\n  display: flex;\n  background: darken($primary-color,10);\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n}\n\n\n#form-query {\n  display: flex;\n}\n\n.center-container {\n  height: calc(100vh - 68.8px);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.weather-container {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-rows: 1fr 1fr 1fr;\n  min-width: 360px;\n  min-height: 20rem;\n  padding: 1rem;\n  gap: 1rem;\n\n  background-color: $secondary-color;\n  border-radius: 10px;\n  font-size: 2rem;\n  font-weight: bold;\n  color: white;\n\n  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\n  transition: 0.3s;\n\n  &:hover {\n    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\n  }\n\n  div {\n    display:flex;\n    justify-content: center;\n    align-items: center;\n  }\n\n  #weather-city {\n    justify-self: center;\n    grid-column: 1 / span 2;\n  }\n\n  #weather-country {\n    justify-self: center;\n    grid-row-start: 2;\n    grid-column: 1 / span 2;\n  }\n}","$font-stack: Arial, Helvetica, sans-serif;\n$primary-color: #0e6cff;\n$secondary-color: #ff8700;"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -670,10 +670,19 @@ const dom = (() => {
     displayWeather(inputQuery);
   };
 
+  const init = () => {
+    displayWeather('Surrey');
+  };
+
+  // event listeners
   const eventListeners = (() => {
     const formQuery = document.querySelector('#form-query');
     formQuery.addEventListener('submit', submitForm);
   })();
+
+  return {
+    init,
+  };
 })();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dom);
@@ -815,8 +824,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+_dom_js__WEBPACK_IMPORTED_MODULE_0__["default"].init();
+
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle8c19792e1108d7260e43.js.map
+//# sourceMappingURL=bundle61f786450ed6b1faf330.js.map
